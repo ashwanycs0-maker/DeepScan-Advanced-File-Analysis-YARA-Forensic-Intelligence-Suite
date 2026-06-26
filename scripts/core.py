@@ -109,4 +109,4 @@ def analyze(file):
         "risk": risk_score,
         "status": status,
         "log": raw_yara if raw_yara else f"Content Analysis found: {', '.join(features)}"
-    }
+    }
