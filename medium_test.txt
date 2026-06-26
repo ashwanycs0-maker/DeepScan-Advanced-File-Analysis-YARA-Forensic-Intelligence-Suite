@@ -1,0 +1,5 @@
+This file contains some suspicious features.
+It mentions "malicious" activities and "attack" patterns.
+It also has a URL: http://example-suspicious-site.com
+This should be detected as MEDIUM risk due to multiple suspicious features.
+Security status: MEDIUM.

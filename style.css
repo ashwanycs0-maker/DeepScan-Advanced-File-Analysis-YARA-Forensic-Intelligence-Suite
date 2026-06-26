@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+:root {
+    --bg-main: #131b26;
+    --bg-card: #1c2635;
+    --sidebar-bg: #0f1620;
+    --accent-blue: #3498db;
+    --accent-green: #2ecc71;
+    --accent-yellow: #f1c40f;
+    --accent-red: #e74c3c;
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --border: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    font-size: 18px;
+    /* Globally bigger font */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 70px;
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+    gap: 35px;
+    border-right: 1px solid var(--border);
+}
+
+.sidebar i {
+    color: var(--text-secondary);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.sidebar i:hover,
+.sidebar i.active {
+    color: var(--accent-blue);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+header {
+    padding: 20px 30px;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border);
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title-row h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.file-search-bar {
+    display: flex;
+    gap: 12px;
+    background: #0f1620;
+    padding: 12px;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.file-search-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    padding: 5px 10px;
+    outline: none;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.btn-grey {
+    background: #4a5568;
+    color: white;
+}
+
+.btn-green {
+    background: #38a169;
+    color: white;
+}
+
+/* Dashboard Grid */
+.dashboard-container {
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 1.6fr;
+    gap: 25px;
+    flex: 1;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.metadata-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.metadata-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem;
+}
+
+.metadata-label {
+    color: var(--text-secondary);
+    min-width: 100px;
+    font-weight: 500;
+}
+
+.metadata-value {
+    color: var(--text-primary);
+    word-break: break-all;
+    font-weight: 400;
+}
+
+.progress-container {
+    height: 12px;
+    background: #0f1620;
+    border-radius: 6px;
+    flex: 1;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--accent-blue);
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* YARA Matches */
+.yara-matches-card {
+    flex: 1;
+}
+
+.rule-group {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+/* Threat & Risk */
+.threat-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gauge-box {
+    text-align: center;
+    padding: 15px;
+}
+
+.main-gauge {
+    width: 220px;
+    height: 110px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.gauge-body {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #0f1620;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.gauge-fill {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: conic-gradient(from 180deg at 50% 50%, var(--accent-green) 0deg, var(--accent-yellow) 90deg, var(--accent-red) 180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    transform: rotate(0deg);
+    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gauge-cover {
+    width: 180px;
+    height: 180px;
+    background: var(--bg-card);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.gauge-value {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-top: 15px;
+}
+
+.stat-card {
+    background: rgba(15, 22, 32, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.stat-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Chart Styles */
+.chart-container {
+    height: 250px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Feed */
+.feed-content {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    height: 500px;
+    overflow-y: auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.feed-line {
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+/* Footer */
+footer {
+    padding: 15px 30px;
+    background: var(--bg-card);
+    border-top: 2px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent-green);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2c3e50;
+    border-radius: 10px;
+}

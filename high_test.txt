@@ -1,0 +1,7 @@
+CRITICAL THREAT DETECTED.
+This file contains a simulated "trojan" payload.
+Triggering Basic_Malware_Detection YARA rule.
+Malware keywords: trojan, hack, malware.
+High entropy simulation: #@$%^&*()_+!@#$%^&*()_+!@#$%^&*()_+
+This should be detected as HIGH risk.
+Security status: HIGH.
